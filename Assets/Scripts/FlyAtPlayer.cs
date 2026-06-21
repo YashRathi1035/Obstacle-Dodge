@@ -6,6 +6,12 @@ public class FlyAtPlayer : MonoBehaviour
     [SerializeField] float speed = 1.0f;
     [SerializeField] Transform player;
     Vector3 playerPosition;
+
+    // Order of execution -> awake -> start etc etc
+    void Awake()
+    {
+        gameObject.SetActive(false);
+    }
     void Start()
     {
         playerPosition = player.transform.position;
@@ -17,6 +23,7 @@ public class FlyAtPlayer : MonoBehaviour
         MoveToPlayer();
         DestroyWhenReached();
     }
+
 
     void MoveToPlayer()
     {
